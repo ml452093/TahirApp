@@ -65,6 +65,7 @@ lintDebug:
   stage: build
   script:
     - ./gradlew -Pci --console=plain :app:lintDebug -PbuildDir=lint
+  allow_failure: true
 
 # Make Project
 assembleDebug:
