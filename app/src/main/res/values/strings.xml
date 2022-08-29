@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">FitnessApp</string>
+    <string name="menu_open">Öffnen</string>
+    <string name="menu_close">Schließen</string>
 </resources>
