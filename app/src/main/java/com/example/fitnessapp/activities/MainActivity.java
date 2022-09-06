@@ -46,13 +46,15 @@ public class MainActivity extends AppCompatActivity {
         activityMainBinding.loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                register();
-                /*
+
+                //TODO: Register Methode einbinden anstatt das Intent zu starten
+                //register();
+
                 Intent i = new Intent(getApplicationContext(), LeaderboardActivity.class);
                 i.setFlags(i.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY);
                 startActivity(i);
 
-                 */
+
             }
         });
     }
