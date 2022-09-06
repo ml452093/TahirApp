@@ -1,12 +1,14 @@
 package com.example.fitnessapp;
 
+import android.app.Application;
+
 import com.example.fitnessapp.service.ILeaderBoardService;
 import com.example.fitnessapp.service.IUserService;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-class FitnessAppAndroidApplication {
+public class FitnessAppAndroidApplication extends Application {
 
     private IUserService userService;
     private ILeaderBoardService leaderBoardService;
@@ -27,6 +29,7 @@ class FitnessAppAndroidApplication {
     }
 
     public IUserService getUserService() { return this.userService; }
+
     public ILeaderBoardService getLeaderBoardService() { return  this.leaderBoardService; }
 
     public String getJwt() { return jwt; }

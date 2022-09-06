@@ -8,12 +8,12 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
 
 import com.example.fitnessapp.R;
+import com.example.fitnessapp.activities.Leaderboard.LeaderboardActivity;
 import com.google.android.material.navigation.NavigationView;
 
 
@@ -50,7 +50,7 @@ public class DrawerBaseActivity extends AppCompatActivity implements NavigationV
                 overridePendingTransition(0,0);
                 break;
             case R.id.nav_leaderBoard:
-                startActivity(new Intent(this,LeaderboardActivity.class));
+                startActivity(new Intent(this, LeaderboardActivity.class));
                 overridePendingTransition(0,0);
                 break;
         }
