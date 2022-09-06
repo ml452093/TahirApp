@@ -6,7 +6,7 @@ import com.example.fitnessapp.databinding.ActivityCreateExerciseBinding;
 
 public class CreateExerciseActivity extends DrawerBaseActivity {
 
-    ActivityCreateExerciseBinding activityCreateExerciseBinding;
+    private ActivityCreateExerciseBinding activityCreateExerciseBinding;
 
 
     @Override
