@@ -6,43 +6,57 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application android:name=".FitnessAppAndroidApplication">
-        <activity android:name=".activities.Leaderboard.LeaderboardPublicActivity"
+        <activity
+            android:name=".activities.trainingsverwaltung.AddPlansActivity"
+            android:exported="false"
+            android:label = "Trainingsverwaltung"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"/>
+        <activity
+            android:name=".activities.trainingsverwaltung.AddExercisesActivity"
+            android:exported="false"
+            android:label = "Trainingsverwaltung"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"/>
+        <activity
+            android:name=".activities.Leaderboard.LeaderboardPublicActivity"
             android:exported="true"
             android:label="Öffentliche Leaderboards"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"></activity>
-        <activity android:name=".activities.Leaderboard.LeaderboardJoinedActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+        <activity
+            android:name=".activities.Leaderboard.LeaderboardJoinedActivity"
             android:exported="true"
             android:label="Beigetretene Leaderboards"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"/>
-        <activity android:name=".activities.Leaderboard.LeaderboardMainActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+        <activity
+            android:name=".activities.Leaderboard.LeaderboardMainActivity"
             android:exported="true"
             android:label="Haupt Leaderboard"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"/>
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
-            android:name=".activities.TrainingsverwaltungActivity"
+            android:name=".activities.trainingsverwaltung.TrainingsverwaltungActivity"
             android:exported="false"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
-            />
-
+            android:label="Trainingsverwaltung"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity android:name=".activities.DrawerBaseActivity" />
         <activity
-            android:name=".activities.CreateExerciseActivity"
+            android:name=".activities.trainingsverwaltung.CreateExerciseActivity"
             android:exported="true"
-            android:label="Übung erstellen"
+            android:label = "Trainingsverwaltung"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+        <activity
+            android:name=".activities.trainingsverwaltung.CreatePlanActivity"
+            android:exported="true"
+            android:label = "Trainingsverwaltung"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name=".activities.Leaderboard.LeaderboardActivity"
             android:exported="true"
             android:label="Leaderboard"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
-
-        </activity>
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name=".activities.MainActivity"
             android:exported="true"
             android:label="FitnessApp"
-            android:theme="@style/Theme.AppCompat.DayNight"
-            >
+            android:theme="@style/Theme.AppCompat.DayNight">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

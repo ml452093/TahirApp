@@ -1,4 +1,4 @@
-package com.example.fitnessapp;
+package com.example.fitnessapp.activities.trainingsverwaltung;
 
 import android.os.Bundle;
 import android.view.View;
@@ -6,6 +6,8 @@ import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.fitnessapp.FitnessAppAndroidApplication;
+import com.example.fitnessapp.R;
 import com.example.fitnessapp.dto.ExerciseDto;
 import com.example.fitnessapp.dto.ExercisePlanDto;
 

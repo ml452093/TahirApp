@@ -14,6 +14,7 @@ import android.widget.FrameLayout;
 
 import com.example.fitnessapp.R;
 import com.example.fitnessapp.activities.Leaderboard.LeaderboardActivity;
+import com.example.fitnessapp.activities.trainingsverwaltung.TrainingsverwaltungActivity;
 import com.google.android.material.navigation.NavigationView;
 
 
