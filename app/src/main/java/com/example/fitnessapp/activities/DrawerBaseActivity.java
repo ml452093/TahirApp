@@ -46,7 +46,7 @@ public class DrawerBaseActivity extends AppCompatActivity implements NavigationV
         //Hier wird kontrolliert, was passiert wenn etwas in der Navigationsbar angeklickt wird.
         switch (item.getItemId()) {
             case R.id.nav_trainings_verwaltung:
-                startActivity(new Intent(this,CreateExerciseActivity.class));
+                startActivity(new Intent(this, TrainingsverwaltungActivity.class));
                 overridePendingTransition(0,0);
                 break;
             case R.id.nav_leaderBoard:
