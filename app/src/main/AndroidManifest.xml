@@ -5,30 +5,42 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
-    <application android:name=".FitnessAppAndroidApplication">
+    <application
+        android:name=".FitnessAppAndroidApplication"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".activities.Leaderboard.ShowLeaderboardActivity"
+            android:exported="false"
+            android:label="Erstelle Leaderboard"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+        <activity
+            android:name=".activities.Leaderboard.CreateLeaderboardActivity"
+            android:exported="false"
+            android:label="Erstelle Leaderboard"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name=".activities.trainingsverwaltung.AddPlansActivity"
             android:exported="false"
-            android:label = "Trainingsverwaltung"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"/>
+            android:label="Trainingsverwaltung"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name=".activities.trainingsverwaltung.AddExercisesActivity"
             android:exported="false"
-            android:label = "Trainingsverwaltung"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"/>
+            android:label="Trainingsverwaltung"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name=".activities.Leaderboard.LeaderboardPublicActivity"
-            android:exported="true"
+            android:exported="false"
             android:label="Öffentliche Leaderboards"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name=".activities.Leaderboard.LeaderboardJoinedActivity"
-            android:exported="true"
+            android:exported="false"
             android:label="Beigetretene Leaderboards"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name=".activities.Leaderboard.LeaderboardMainActivity"
-            android:exported="true"
+            android:exported="false"
             android:label="Haupt Leaderboard"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
@@ -40,16 +52,16 @@
         <activity
             android:name=".activities.trainingsverwaltung.CreateExerciseActivity"
             android:exported="true"
-            android:label = "Trainingsverwaltung"
+            android:label="Trainingsverwaltung"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name=".activities.trainingsverwaltung.CreatePlanActivity"
             android:exported="true"
-            android:label = "Trainingsverwaltung"
+            android:label="Trainingsverwaltung"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name=".activities.Leaderboard.LeaderboardActivity"
-            android:exported="true"
+            android:exported="false"
             android:label="Leaderboard"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity

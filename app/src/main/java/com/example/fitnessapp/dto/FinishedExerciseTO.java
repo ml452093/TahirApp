@@ -1,6 +1,5 @@
 package com.example.fitnessapp.dto;
 
-import java.time.LocalDateTime;
 import java.util.Objects;
 
 public class FinishedExerciseTO {
@@ -14,14 +13,14 @@ public class FinishedExerciseTO {
     private double weight;
     private int score;
 
-    private LocalDateTime date;
+    private String date;
 
 
     public FinishedExerciseTO() {
 
     }
 
-    public FinishedExerciseTO(String name, String description, int repetitions, int sets, double weight, int score, LocalDateTime date) {
+    public FinishedExerciseTO(String name, String description, int repetitions, int sets, double weight, int score, String date) {
         this.name = name;
         this.description = description;
         this.repetitions = repetitions;
@@ -83,11 +82,11 @@ public class FinishedExerciseTO {
         this.score = score;
     }
 
-    public LocalDateTime getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(LocalDateTime date) {
+    public void setDate(String date) {
         this.date = date;
     }
 

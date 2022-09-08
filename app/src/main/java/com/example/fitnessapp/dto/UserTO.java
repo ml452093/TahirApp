@@ -10,7 +10,7 @@ public class UserTO {
 
     private int id;
 
-    private Set<FinishedExerciseTO> finishedExercises;
+    private List<FinishedExerciseTO> finishedExercises;
     private List<LeaderBoardTO> leaderBoards;
 
     private String name;
@@ -33,7 +33,7 @@ public class UserTO {
         this.role = role;
     }
 
-    public UserTO(int id, String name, String email, int height, int weight, boolean isPublic, Role role) {
+    public UserTO(int id, String name, String email, int height, int weight, boolean isPublic, Role role, List<FinishedExerciseTO> finishedExercises) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -41,6 +41,7 @@ public class UserTO {
         this.weight = weight;
         this.isPublic = isPublic;
         this.role = role;
+        this.finishedExercises = finishedExercises;
     }
 
     public int getId() {
@@ -75,8 +76,8 @@ public class UserTO {
         return isPublic;
     }
 
-    public void setPublic(boolean aPublic) {
-        isPublic = aPublic;
+    public void setPublic(boolean isPublic) {
+        this.isPublic = isPublic;
     }
 
     public Role getRole() {
@@ -91,7 +92,7 @@ public class UserTO {
 
     public void setLeaderBoards(List<LeaderBoardTO> leaderBoards) { this.leaderBoards = leaderBoards; }
 
-    public void setFinishedExercises(Set<FinishedExerciseTO> finishedExercises) {
+    public void setFinishedExercises(List<FinishedExerciseTO> finishedExercises) {
         this.finishedExercises = finishedExercises;
     }
 

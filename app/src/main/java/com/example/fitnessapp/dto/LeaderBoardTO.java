@@ -11,20 +11,20 @@ import java.util.Objects;
 public class LeaderBoardTO {
     private int id;
     private String name;
-    private LocalDateTime startDate;
-    private LocalDateTime endDate;
+    private String startDate;
+    private String endDate;
 
     private List<UserTO> users;
 
     public LeaderBoardTO() {}
 
-    public LeaderBoardTO(String name, LocalDateTime startDate, LocalDateTime endDate) {
+    public LeaderBoardTO(String name, String startDate, String endDate) {
         this.name = name;
         this.startDate = startDate;
         this.endDate = endDate;
     }
 
-    public LeaderBoardTO(int id, String name, LocalDateTime startDate, LocalDateTime endDate) {
+    public LeaderBoardTO(int id, String name, String startDate, String endDate) {
         this.id = id;
         this.name = name;
         this.startDate = startDate;
@@ -43,19 +43,19 @@ public class LeaderBoardTO {
         this.name = name;
     }
 
-    public LocalDateTime getStartDate() {
+    public String getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(LocalDateTime startDate) {
+    public void setStartDate(String startDate) {
         this.startDate = startDate;
     }
 
-    public LocalDateTime getEndDate() {
+    public String getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(LocalDateTime endDate) {
+    public void setEndDate(String endDate) {
         this.endDate = endDate;
     }
 

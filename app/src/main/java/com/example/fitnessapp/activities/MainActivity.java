@@ -25,6 +25,7 @@ import com.example.fitnessapp.model.Role;
 import com.google.android.material.navigation.NavigationView;
 
 import java.io.IOException;
+import java.util.Random;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -41,36 +42,36 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         activityMainBinding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(activityMainBinding.getRoot());
-        //setContentView(R.layout.activity_main);
 
         activityMainBinding.loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                //TODO: Register Methode einbinden anstatt das Intent zu starten
-                //register();
-
-                Intent i = new Intent(getApplicationContext(), LeaderboardActivity.class);
-                i.setFlags(i.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY);
-                startActivity(i);
-
-
+                register();
             }
         });
     }
 
     public void register () {
 
+        Random r = new Random();
+        int low = 10;
+        int high = 100;
+        int randomNumber = r.nextInt(high-low) + low;
+
         UserTO userTO = new UserTO();
         userTO.setHeight(202);
-        userTO.setEmail("Ingo13@gmail.com");
+        userTO.setEmail("Ingo"+randomNumber+"@gmail.com");
         userTO.setPublic(true);
         userTO.setName("IngoAdmin");
-        userTO.setRole(Role.MEMBER);
+        userTO.setRole(Role.ADMIN);
         userTO.setWeight(90);
 
         final FitnessAppAndroidApplication myApp = (FitnessAppAndroidApplication) getApplication();
 
+        myApp.setUserRole(userTO.getRole());
+
+        System.out.println(userTO.toString());
+        System.out.println(Role.MEMBER);
         Call<ResponseBody> call = myApp.getUserService().register(userTO);
         call.enqueue(new Callback<ResponseBody>() {
             @Override
@@ -83,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
                         e.printStackTrace();
                     }
                     Intent intent = new Intent(getApplicationContext(), LeaderboardActivity.class);
-                    intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY);
+                    //intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY);
                     startActivity(intent);
 
                 } else {

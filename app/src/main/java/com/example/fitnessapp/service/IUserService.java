@@ -15,6 +15,6 @@ import retrofit2.http.PUT;
 import retrofit2.http.Path;
 
 public interface IUserService {
-    @POST("/rest/users/register")
+    @POST("/rest/user/mockRegister")
     public Call<ResponseBody> register(@Body UserTO userTO);
 }
