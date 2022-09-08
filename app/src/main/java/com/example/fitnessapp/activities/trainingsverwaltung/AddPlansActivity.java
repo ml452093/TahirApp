@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.SparseBooleanArray;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 
@@ -35,6 +36,8 @@ public class AddPlansActivity extends DrawerBaseActivity {
     List<ExercisePlanDto> selectedPlans = new ArrayList<>();
     ListView listviewUsers;
     ListView listViewPlans;
+    ArrayAdapter<UserTO> userAdapter;
+    ArrayAdapter<ExercisePlanDto> planAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +57,7 @@ public class AddPlansActivity extends DrawerBaseActivity {
             @Override
             public void onResponse(Call<List<ExerciseDto>> call, Response<List<ExerciseDto>> response) {
                 if(response.isSuccessful()) {
-                    exercises = response.body();
+                     = response.body();
                 }else {
 
                 }
@@ -65,6 +68,7 @@ public class AddPlansActivity extends DrawerBaseActivity {
 
             }
         });
+        renderUsers();
     }
 
     public void searchPlans(View button) {
@@ -86,6 +90,7 @@ public class AddPlansActivity extends DrawerBaseActivity {
 
             }
         });
+        renderPlans();
     }
 
     public void selectUsers(View button) {
@@ -120,9 +125,23 @@ public class AddPlansActivity extends DrawerBaseActivity {
 
     public void submit(View button) {
         for(int i = 0; i < selectedUsers.size(); i++){
-            for(int j; j < selectedPlans.size(); j++){
+            for(int j = 0; j < selectedPlans.size(); j++){
                 Call<ExercisePlanDto> call = this.fitnessApp.getTrainingManagementService().addUserToExercisePlan("Bearer " + this.fitnessApp.getJwt(), selectedPlans.get(j).getId(), selectedUsers.get(i).getId());
             }
         }
+    }
+
+    public void renderUsers() {
+        listviewUsers = findViewById(R.id.addplan_user_listview);
+        UserTO[] userArray = users.toArray(new UserTO[0]);
+        userAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_multiple_choice, userArray);
+        listviewUsers.setAdapter(userAdapter);
+    }
+
+    public void renderPlans() {
+        listViewPlans = findViewById(R.id.createplan_listview);
+        ExercisePlanDto[] planArray = plans.toArray(new ExercisePlanDto[0]);
+        planAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_multiple_choice, planArray);
+        listViewPlans.setAdapter(planAdapter);
     }
 }

@@ -32,6 +32,7 @@ public class CreatePlanActivity extends AppCompatActivity {
     private FitnessAppAndroidApplication fitnessApp;
 
     ListView listView;
+    ArrayAdapter<ExerciseDto> adapter;
     List<ExerciseDto> exercises = new ArrayList<>();
     List<ExerciseDto> selectedExercises = new ArrayList<>();
 
@@ -75,7 +76,8 @@ public class CreatePlanActivity extends AppCompatActivity {
 
     public void renderResults() {
         listView = findViewById(R.id.createplan_listview);
-        adapter = new ListAdapter(this, android.R.layout.simple_list_item_multiple_choice, exercises);
+        ExerciseDto[] exerciseArray = exercises.toArray(new ExerciseDto[0]);
+        adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_multiple_choice, exerciseArray);
         listView.setAdapter(adapter);
     }
 
