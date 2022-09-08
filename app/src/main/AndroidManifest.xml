@@ -19,6 +19,11 @@
             android:label="Erstelle Leaderboard"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
+            android:name=".activities.trainingsverwaltung.EditExerciseOrPlanActivity"
+            android:exported="false"
+            android:label="Trainingsverwaltung"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+        <activity
             android:name=".activities.trainingsverwaltung.AddPlansActivity"
             android:exported="false"
             android:label="Trainingsverwaltung"

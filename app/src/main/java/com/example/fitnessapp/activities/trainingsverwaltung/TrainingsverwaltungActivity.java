@@ -43,4 +43,9 @@ public class TrainingsverwaltungActivity extends DrawerBaseActivity {
         Intent i = new Intent(this, AddPlansActivity.class);
         startActivity(i);
     }
+
+    public void openEditPlanExercise(View button) {
+        Intent i = new Intent(this, EditExerciseOrPlanActivity.class);
+        startActivity(i);
+    }
 }
