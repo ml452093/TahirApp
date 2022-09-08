@@ -33,30 +33,62 @@
         android:id="@+id/createPlanTitle2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="59dp"
         android:text="Add Exercises"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="273dp" />
+        app:layout_constraintTop_toBottomOf="@+id/createPlanName" />
 
     <EditText
         android:id="@+id/createPlanExerciseSearchName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="14dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Exercise Name"
         android:textSize="18sp"
-        tools:layout_editor_absoluteX="48dp"
-        tools:layout_editor_absoluteY="327dp" />
+        app:layout_constraintEnd_toStartOf="@+id/createPlanSearchButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/createPlanTitle2" />
 
     <Button
         android:id="@+id/createPlanSearchButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="50dp"
         android:text="Search"
-        tools:layout_editor_absoluteX="271dp"
-        tools:layout_editor_absoluteY="324dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/createPlanTitle2" />
+
+    <ListView
+        android:id="@+id/createplan_listview"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="30dp"
+        android:choiceMode="multipleChoice"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/createPlanExerciseSearchName" />
+
+    <Button
+        android:id="@+id/buttonAddExercisesToPlan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:text="Übungen hinzufügen"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        android:onClick="showClicked"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

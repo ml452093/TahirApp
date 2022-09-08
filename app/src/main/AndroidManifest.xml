@@ -7,15 +7,20 @@
 
     <application android:name=".FitnessAppAndroidApplication">
         <activity
+            android:name=".activities.trainingsverwaltung.EditExerciseOrPlanActivity"
+            android:exported="false"
+            android:label="Trainingsverwaltung"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+        <activity
             android:name=".activities.trainingsverwaltung.AddPlansActivity"
             android:exported="false"
-            android:label = "Trainingsverwaltung"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"/>
+            android:label="Trainingsverwaltung"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name=".activities.trainingsverwaltung.AddExercisesActivity"
             android:exported="false"
-            android:label = "Trainingsverwaltung"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"/>
+            android:label="Trainingsverwaltung"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name=".activities.Leaderboard.LeaderboardPublicActivity"
             android:exported="true"
@@ -40,12 +45,12 @@
         <activity
             android:name=".activities.trainingsverwaltung.CreateExerciseActivity"
             android:exported="true"
-            android:label = "Trainingsverwaltung"
+            android:label="Trainingsverwaltung"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name=".activities.trainingsverwaltung.CreatePlanActivity"
             android:exported="true"
-            android:label = "Trainingsverwaltung"
+            android:label="Trainingsverwaltung"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name=".activities.Leaderboard.LeaderboardActivity"
