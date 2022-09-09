@@ -42,6 +42,9 @@ public class EditExerciseOrPlanActivity extends DrawerBaseActivity {
         activityEditExerciseOrPlanBinding = ActivityEditExerciseOrPlanBinding.inflate(getLayoutInflater());
         setContentView(activityEditExerciseOrPlanBinding.getRoot());
         allocateActivityTitle("Trainingsverwaltung");
+        this.fitnessApp = (FitnessAppAndroidApplication) getApplication();
+        this.searchExercisesEdit(null);
+        this.searchPlansEdit(null);
     }
 
     public void searchExercisesEdit(View button) {
@@ -94,7 +97,7 @@ public class EditExerciseOrPlanActivity extends DrawerBaseActivity {
         ExerciseDto exerciseDto = exercises.get(index);
         Intent i = new Intent(this, CreateExerciseActivity.class);
         i.putExtra("mode", "edit");
-        //i.put exerciseDto
+        i.putExtra("dto", exerciseDto);
         startActivity(i);
     }
 
@@ -111,7 +114,7 @@ public class EditExerciseOrPlanActivity extends DrawerBaseActivity {
         ExercisePlanDto planDto = plans.get(index);
         Intent i = new Intent(this, CreatePlanActivity.class);
         i.putExtra("mode", "edit");
-        // put dto as extra
+        i.putExtra("dto", planDto);
         startActivity(i);
     }
 

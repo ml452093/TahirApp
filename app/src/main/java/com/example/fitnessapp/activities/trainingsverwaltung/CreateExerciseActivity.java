@@ -28,8 +28,8 @@ public class CreateExerciseActivity extends DrawerBaseActivity {
         allocateActivityTitle("Übung erstellen");
         this.fitnessApp = (FitnessAppAndroidApplication) getApplication();
         mode = getIntent().getStringExtra("mode");
-        exerciseDto = getIntent().getParcelableExtra("dto");
         if(mode == "edit"){
+            exerciseDto = getIntent().getParcelableExtra("dto");
             EditText editName = (EditText) findViewById(R.id.createExerciseName);
             EditText editWeight = (EditText) findViewById(R.id.createExerciseWeight);
             EditText editReps = (EditText) findViewById(R.id.createExerciseReps);

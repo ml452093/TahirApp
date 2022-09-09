@@ -64,6 +64,7 @@ public class CreatePlanActivity extends AppCompatActivity {
         }else if (mode == "edit"){
             Call<ExercisePlanDto> call = this.fitnessApp.getTrainingManagementService().editPlan("Bearer " + this.fitnessApp.getJwt(), exercisePlanDto);
         }
+        this.searchExercises(null);
     }
 
     public void searchExercises(View view) {
@@ -93,6 +94,13 @@ public class CreatePlanActivity extends AppCompatActivity {
         ExerciseDto[] exerciseArray = exercises.toArray(new ExerciseDto[0]);
         adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_multiple_choice, exerciseArray);
         listView.setAdapter(adapter);
+        List<Integer> positions = new ArrayList<>();
+        for(int i = 0; i < selectedExercises.size(); i++){
+            positions.add(exercises.indexOf(selectedExercises.get(i)));
+        }
+        for(int i = 0; i < positions.size(); i++){
+            listView.setItemChecked(positions.get(i), true);
+        }
     }
 
     public void selectExercises(View view) {

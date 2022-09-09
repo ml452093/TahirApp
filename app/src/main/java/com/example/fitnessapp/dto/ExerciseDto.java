@@ -1,10 +1,13 @@
 package com.example.fitnessapp.dto;
 
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.List;
 import java.util.Set;
 
-public class ExerciseDto {
+public class ExerciseDto implements Parcelable {
 
     private Integer exerciseId;
     private String name;
@@ -28,6 +31,43 @@ public class ExerciseDto {
         this.creatorId = creatorId;
         this.points = points;
     }
+
+    //Parcel Constructor
+    public ExerciseDto(Parcel in) {
+        exerciseId = in.readInt();
+        name = in.readString();
+        weight = in.readDouble();
+        numberOfReps = in.readInt();
+        numberOfSets = in.readInt();
+        points = in.readDouble();
+        creatorId = in.readInt();
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel out, int flags) {
+        out.writeInt(exerciseId);
+        out.writeString(name);
+        out.writeDouble(weight);
+        out.writeInt(numberOfReps);
+        out.writeInt(numberOfSets);
+        out.writeDouble(points);
+        out.writeInt(creatorId);
+    }
+
+    public static final Parcelable.Creator<ExerciseDto> CREATOR = new Parcelable.Creator<ExerciseDto>() {
+        public ExerciseDto createFromParcel(Parcel in) {
+            return new ExerciseDto(in);
+        }
+
+        public ExerciseDto[] newArray(int size) {
+            return new ExerciseDto[size];
+        }
+    };
 
     public Integer getId() {
         return exerciseId;
