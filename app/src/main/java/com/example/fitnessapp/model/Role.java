@@ -8,5 +8,5 @@ public enum Role {
     @SerializedName("0")
     ADMIN,
     @SerializedName("1")
-    MEMBER;
+    USER;
 }

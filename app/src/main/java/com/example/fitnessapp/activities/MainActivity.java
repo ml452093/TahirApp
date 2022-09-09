@@ -64,13 +64,8 @@ public class MainActivity extends AppCompatActivity {
         userTO.setName("IngoAdmin");
         userTO.setRole(Role.ADMIN);
         userTO.setWeight(90);
-
         final FitnessAppAndroidApplication myApp = (FitnessAppAndroidApplication) getApplication();
-
         myApp.setUserRole(userTO.getRole());
-
-        System.out.println(userTO.toString());
-        System.out.println(Role.MEMBER);
         Call<ResponseBody> call = myApp.getUserService().register(userTO);
         call.enqueue(new Callback<ResponseBody>() {
             @Override
