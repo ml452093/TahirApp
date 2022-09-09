@@ -17,29 +17,26 @@ public class UserTO {
     private String email;
     private int height;
     private int weight;
-    private boolean isPublic;
     private Role role;
 
     public UserTO() {
 
     }
 
-    public UserTO(String name, String email, int height, int weight, boolean isPublic, Role role) {
+    public UserTO(String name, String email, int height, int weight, Role role) {
         this.name = name;
         this.email = email;
         this.height = height;
         this.weight = weight;
-        this.isPublic = isPublic;
         this.role = role;
     }
 
-    public UserTO(int id, String name, String email, int height, int weight, boolean isPublic, Role role, List<FinishedExerciseTO> finishedExercises) {
+    public UserTO(int id, String name, String email, int height, int weight, Role role, List<FinishedExerciseTO> finishedExercises) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.height = height;
         this.weight = weight;
-        this.isPublic = isPublic;
         this.role = role;
         this.finishedExercises = finishedExercises;
     }
@@ -70,14 +67,6 @@ public class UserTO {
 
     public void setWeight(int weight) {
         this.weight = weight;
-    }
-
-    public boolean isPublic() {
-        return isPublic;
-    }
-
-    public void setPublic(boolean isPublic) {
-        this.isPublic = isPublic;
     }
 
     public Role getRole() {
@@ -112,7 +101,6 @@ public class UserTO {
                 ", email='" + email + '\'' +
                 ", height=" + height +
                 ", weight=" + weight +
-                ", isPublic=" + isPublic +
                 ", role=" + role +
                 '}';
     }
@@ -122,12 +110,12 @@ public class UserTO {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         UserTO user = (UserTO) o;
-        return id == user.id && height == user.height && weight == user.weight && isPublic == user.isPublic && Objects.equals(name, user.name) && Objects.equals(email, user.email) && role == user.role;
+        return id == user.id && height == user.height && weight == user.weight && Objects.equals(name, user.name) && Objects.equals(email, user.email) && role == user.role;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, email, height, weight, isPublic, role);
+        return Objects.hash(id, name, email, height, weight, role);
     }
 
     public int getTotalScore() {

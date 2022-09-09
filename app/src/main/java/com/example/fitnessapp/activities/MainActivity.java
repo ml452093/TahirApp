@@ -61,7 +61,6 @@ public class MainActivity extends AppCompatActivity {
         UserTO userTO = new UserTO();
         userTO.setHeight(202);
         userTO.setEmail("Ingo"+randomNumber+"@gmail.com");
-        userTO.setPublic(true);
         userTO.setName("IngoAdmin");
         userTO.setRole(Role.ADMIN);
         userTO.setWeight(90);
