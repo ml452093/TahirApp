@@ -44,6 +44,8 @@ public class AddPlansActivity extends DrawerBaseActivity {
         setContentView(activityAddPlansBinding.getRoot());
         allocateActivityTitle("Trainingsverwaltung");
         this.fitnessApp = (FitnessAppAndroidApplication) getApplication();
+        this.searchUsers(null);
+        this.searchPlans(null);
     }
     
     public void searchUsers(View button) {

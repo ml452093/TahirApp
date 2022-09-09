@@ -44,6 +44,9 @@ public class AddExercisesActivity extends DrawerBaseActivity {
         activityAddExercisesBinding = ActivityAddExercisesBinding.inflate(getLayoutInflater());
         setContentView(activityAddExercisesBinding.getRoot());
         allocateActivityTitle("Trainingsverwaltung");
+        this.fitnessApp = (FitnessAppAndroidApplication) getApplication();
+        searchUsers(null);
+        searchExercises(null);
     }
 
     public void searchUsers(View button) {
@@ -105,7 +108,7 @@ public class AddExercisesActivity extends DrawerBaseActivity {
         selectedExercises.clear();
     }
 
-    public void submit(View button) {
+    public void submitAddPlans(View button) {
         for(int i = 0; i < selectedUsers.size(); i++){
             for(int j = 0; j < selectedExercises.size(); j++){
                 Call<ExerciseDto> call = this.fitnessApp.getTrainingManagementService().addUserToExercise("Bearer " + this.fitnessApp.getJwt(), selectedExercises.get(j).getId(), selectedUsers.get(i).getId());
@@ -116,7 +119,7 @@ public class AddExercisesActivity extends DrawerBaseActivity {
     public void renderUsers() {
         listViewUsers = findViewById(R.id.createplan_listview);
         UserTO[] userArray = users.toArray(new UserTO[0]);
-        userAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_multiple_choice, userArray);
+        userAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_single_choice, userArray);
         listViewUsers.setAdapter(userAdapter);
     }
 
