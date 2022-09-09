@@ -52,22 +52,23 @@ public class AddPlansActivity extends DrawerBaseActivity {
     public void searchUsers(View button) {
         EditText editName = (EditText) findViewById(R.id.addplan_user_edittext);
         String name = editName.getText().toString();
-        Call<List<ExercisePlanDto>> call = this.fitnessApp.getTrainingManagementService().searchExercisePlansByName("Bearer " + this.fitnessApp.getJwt(), name);
-        call.enqueue(new Callback<List<ExercisePlanDto>>() {
+        /* Hier würde der UserService angefragt werden
+        Call<List<UserTO>> call = this.fitnessApp;
+        call.enqueue(new Callback<List<UserTO>>() {
             @Override
-            public void onResponse(Call<List<ExerciseDto>> call, Response<List<ExerciseDto>> response) {
+            public void onResponse(Call<List<UserTO>> call, Response<List<UserTO>> response) {
                 if(response.isSuccessful()) {
-                     = response.body();
+                    users = response.body();
                 }else {
 
                 }
             }
 
             @Override
-            public void onFailure(Call<List<ExerciseDto>> call, Throwable t) {
+            public void onFailure(Call<List<UserTO>> call, Throwable t) {
 
             }
-        });
+        });*/
         renderUsers();
     }
 

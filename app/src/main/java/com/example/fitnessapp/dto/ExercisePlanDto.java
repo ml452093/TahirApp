@@ -1,5 +1,7 @@
 package com.example.fitnessapp.dto;
 
+import android.os.Parcelable;
+
 import java.util.List;
 import java.util.Set;
 
@@ -22,6 +24,8 @@ public class ExercisePlanDto {
     public Integer getId() {
         return planId;
     }
+
+    public void setId (Integer id) {this.planId = id; }
 
     public String getName() {
         return name;

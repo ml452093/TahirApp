@@ -33,6 +33,8 @@ public class ExerciseDto {
         return exerciseId;
     }
 
+    public void setId(Integer id) { this.exerciseId = id; }
+
     public String getName() {
         return name;
     }

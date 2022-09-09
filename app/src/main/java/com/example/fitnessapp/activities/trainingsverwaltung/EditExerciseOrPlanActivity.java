@@ -2,6 +2,7 @@ package com.example.fitnessapp.activities.trainingsverwaltung;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -88,7 +89,13 @@ public class EditExerciseOrPlanActivity extends DrawerBaseActivity {
     }
 
     public void editExercise(View button) {
-
+        listViewExercises = findViewById(R.id.editplanexercise_exercise_listview);
+        Integer index = listViewExercises.getCheckedItemPosition();
+        ExerciseDto exerciseDto = exercises.get(index);
+        Intent i = new Intent(this, CreateExerciseActivity.class);
+        i.putExtra("mode", "edit");
+        //i.put exerciseDto
+        startActivity(i);
     }
 
     public void deleteExercise(View button) {
@@ -99,7 +106,13 @@ public class EditExerciseOrPlanActivity extends DrawerBaseActivity {
     }
 
     public void editPlan(View button) {
-
+        listViewPlans = findViewById(R.id.editplanexercise_plan_listview);
+        Integer index = listViewPlans.getCheckedItemPosition();
+        ExercisePlanDto planDto = plans.get(index);
+        Intent i = new Intent(this, CreatePlanActivity.class);
+        i.putExtra("mode", "edit");
+        // put dto as extra
+        startActivity(i);
     }
 
     public void deletePlan(View button) {

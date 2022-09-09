@@ -35,21 +35,35 @@ public class CreatePlanActivity extends AppCompatActivity {
     ArrayAdapter<ExerciseDto> adapter;
     List<ExerciseDto> exercises = new ArrayList<>();
     List<ExerciseDto> selectedExercises = new ArrayList<>();
+    String mode;
+    ExercisePlanDto exercisePlanDto = new ExercisePlanDto();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_plan);
         this.fitnessApp = (FitnessAppAndroidApplication) getApplication();
+        mode = getIntent().getStringExtra("mode");
+        if(mode == "edit"){
+            exercisePlanDto = getIntent().getParcelableExtra("dto");
+            EditText editText = findViewById(R.id.createPlanName);
+            editText.setText(exercisePlanDto.getName());
+            selectedExercises = exercisePlanDto.getExercises();
+        }
     }
 
     public void submitPlan(View view) {
         //Get Name for exercise plan
         EditText editName = (EditText) findViewById(R.id.createPlanName);
         String name =  editName.getText().toString();
-        Integer userId = 0;
-        ExercisePlanDto exercisePlanDto = new ExercisePlanDto(name, selectedExercises, userId);
-        Call<ExercisePlanDto> call = this.fitnessApp.getTrainingManagementService().savePlan("Bearer " + this.fitnessApp.getJwt(), exercisePlanDto);
+        exercisePlanDto.setName(name);
+        exercisePlanDto.setExercises(selectedExercises);
+        if(mode == "create"){
+            exercisePlanDto.setCreator(this.fitnessApp.getUserId());
+            Call<ExercisePlanDto> call = this.fitnessApp.getTrainingManagementService().savePlan("Bearer " + this.fitnessApp.getJwt(), exercisePlanDto);
+        }else if (mode == "edit"){
+            //Call for editPlan
+        }
     }
 
     public void searchExercises(View view) {
