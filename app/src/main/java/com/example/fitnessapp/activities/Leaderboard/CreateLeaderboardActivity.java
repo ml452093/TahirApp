@@ -45,7 +45,6 @@ public class CreateLeaderboardActivity extends DrawerBaseActivity {
         this.fitnessApp = (FitnessAppAndroidApplication) getApplication();
         allocateActivityTitle("Create Leaderboard");
 
-
         initDatePicker();
 
         endDateBT = activityCreateLeaderboardBinding.endDateSpinner;
@@ -65,7 +64,6 @@ public class CreateLeaderboardActivity extends DrawerBaseActivity {
                 createNewLeaderboard();
             }
         });
-
     }
 
     private void createNewLeaderboard() {
