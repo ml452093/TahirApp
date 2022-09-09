@@ -29,6 +29,12 @@ public interface ITrainingManagementService {
     @GET("/rest/exercises/byName")
     public Call<List<ExerciseDto>> searchExercisesByName(@Header("Authorization") String jwt, @Query("name") String name);
 
+    @PATCH("/rest/exercises/edit")
+    public Call<ExerciseDto> editExercise(@Header("Authorization") String jwt, @Body ExerciseDto exerciseDto);
+
+    @PATCH("/rest/exercises/plans/edit")
+    public Call<ExercisePlanDto> editPlan(@Header("Authorization") String jwt, @Body ExercisePlanDto exercisePlanDto);
+
     @PATCH("/rest/exercises/addUser")
     public Call<ExerciseDto> addUserToExercise(@Header("Authorization") String jwt, @Query("exercise") Integer exerciseId, @Query("user") Integer userId);
 

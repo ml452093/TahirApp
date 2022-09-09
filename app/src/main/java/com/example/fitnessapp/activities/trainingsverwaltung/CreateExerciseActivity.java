@@ -58,9 +58,9 @@ public class CreateExerciseActivity extends DrawerBaseActivity {
         exerciseDto.setPoints(Double.parseDouble(editPoints.getText().toString()));
         if(mode == "create"){
             exerciseDto.setCreator(this.fitnessApp.getUserId());
-            Call<ExerciseDto> call = this.fitnessApp.getTrainingManagementService().saveExercise(this.fitnessApp.getJwt(), exerciseDto);
+            Call<ExerciseDto> call = this.fitnessApp.getTrainingManagementService().saveExercise("Bearer " + this.fitnessApp.getJwt(), exerciseDto);
         }else if(mode == "edit"){
-            //Call edit
+            Call<ExerciseDto> call = this.fitnessApp.getTrainingManagementService().editExercise("Bearer " + this.fitnessApp.getJwt(), exerciseDto);
         }
     }
 }

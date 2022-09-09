@@ -62,7 +62,7 @@ public class CreatePlanActivity extends AppCompatActivity {
             exercisePlanDto.setCreator(this.fitnessApp.getUserId());
             Call<ExercisePlanDto> call = this.fitnessApp.getTrainingManagementService().savePlan("Bearer " + this.fitnessApp.getJwt(), exercisePlanDto);
         }else if (mode == "edit"){
-            //Call for editPlan
+            Call<ExercisePlanDto> call = this.fitnessApp.getTrainingManagementService().editPlan("Bearer " + this.fitnessApp.getJwt(), exercisePlanDto);
         }
     }
 

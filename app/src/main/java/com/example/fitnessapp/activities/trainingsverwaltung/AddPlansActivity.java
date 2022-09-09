@@ -1,7 +1,5 @@
 package com.example.fitnessapp.activities.trainingsverwaltung;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.util.SparseBooleanArray;
 import android.view.View;
@@ -47,8 +45,7 @@ public class AddPlansActivity extends DrawerBaseActivity {
         allocateActivityTitle("Trainingsverwaltung");
         this.fitnessApp = (FitnessAppAndroidApplication) getApplication();
     }
-
-    //Change Service to UserService and make Request there / Mock it
+    
     public void searchUsers(View button) {
         EditText editName = (EditText) findViewById(R.id.addplan_user_edittext);
         String name = editName.getText().toString();
