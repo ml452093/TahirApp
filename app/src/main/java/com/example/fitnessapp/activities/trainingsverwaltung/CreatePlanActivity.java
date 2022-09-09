@@ -6,6 +6,7 @@ import android.util.SparseBooleanArray;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -17,74 +18,96 @@ import com.example.fitnessapp.R;
 import com.example.fitnessapp.dto.ExerciseDto;
 import com.example.fitnessapp.dto.ExercisePlanDto;
 
+import java.sql.Array;
 import java.util.ArrayList;
 import java.util.List;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class CreatePlanActivity extends AppCompatActivity {
 
     private FitnessAppAndroidApplication fitnessApp;
 
     ListView listView;
-    ArrayAdapter<String> adapter;
-    String[] exercises = {"Test1", "Test2", "Test3", "Test2", "Test3", "Test2", "Test3", "Test2", "Test3", "Test2", "Test3", "Test2", "Test3"};
-    List<ExerciseDto> exerciseList = new ArrayList<>();
+    ArrayAdapter<ExerciseDto> adapter;
+    List<ExerciseDto> exercises = new ArrayList<>();
+    List<ExerciseDto> selectedExercises = new ArrayList<>();
+    String mode;
+    ExercisePlanDto exercisePlanDto = new ExercisePlanDto();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_plan);
         this.fitnessApp = (FitnessAppAndroidApplication) getApplication();
-        renderResults();
+        mode = getIntent().getStringExtra("mode");
+        if(mode == "edit"){
+            exercisePlanDto = getIntent().getParcelableExtra("dto");
+            EditText editText = findViewById(R.id.createPlanName);
+            editText.setText(exercisePlanDto.getName());
+            selectedExercises = exercisePlanDto.getExercises();
+        }
     }
 
-    public void savePlan(View view) {
+    public void submitPlan(View view) {
+        //Get Name for exercise plan
         EditText editName = (EditText) findViewById(R.id.createPlanName);
         String name =  editName.getText().toString();
-        List<ExerciseDto> exerciseDtoList = new ArrayList<>();
-        Integer userId = 0;
-        ExercisePlanDto exercisePlanDto = new ExercisePlanDto(name, exerciseDtoList, userId);
-        Call<ExercisePlanDto> call = this.fitnessApp.getTrainingManagementService().savePlan("Bearer " + this.fitnessApp.getJwt(), exercisePlanDto);
+        exercisePlanDto.setName(name);
+        exercisePlanDto.setExercises(selectedExercises);
+        if(mode == "create"){
+            exercisePlanDto.setCreator(this.fitnessApp.getUserId());
+            Call<ExercisePlanDto> call = this.fitnessApp.getTrainingManagementService().savePlan("Bearer " + this.fitnessApp.getJwt(), exercisePlanDto);
+        }else if (mode == "edit"){
+            Call<ExercisePlanDto> call = this.fitnessApp.getTrainingManagementService().editPlan("Bearer " + this.fitnessApp.getJwt(), exercisePlanDto);
+        }
     }
 
     public void searchExercises(View view) {
         EditText editName = (EditText) findViewById(R.id.createPlanExerciseSearchName);
         String name = editName.getText().toString();
         Call<List<ExerciseDto>> call = this.fitnessApp.getTrainingManagementService().searchExercisesByName("Bearer " + this.fitnessApp.getJwt(), name);
+        call.enqueue(new Callback<List<ExerciseDto>>() {
+            @Override
+            public void onResponse(Call<List<ExerciseDto>> call, Response<List<ExerciseDto>> response) {
+                if(response.isSuccessful()) {
+                    exercises = response.body();
+                }else {
 
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<ExerciseDto>> call, Throwable t) {
+
+            }
+        });
+        this.renderResults();
     }
 
     public void renderResults() {
         listView = findViewById(R.id.createplan_listview);
-        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_multiple_choice, exercises);
+        ExerciseDto[] exerciseArray = exercises.toArray(new ExerciseDto[0]);
+        adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_multiple_choice, exerciseArray);
         listView.setAdapter(adapter);
-
     }
 
-    public void showClicked(View view) {
+    public void selectExercises(View view) {
         listView = findViewById(R.id.createplan_listview);
         SparseBooleanArray array = listView.getCheckedItemPositions();
-        StringBuilder sb = new StringBuilder();
-        List<ExerciseDto> list = new ArrayList<>();
         for(int i = 0; i< array.size(); i++){
             if(array.valueAt(i)==true){
                 ExerciseDto o = (ExerciseDto) listView.getItemAtPosition(i);
-                System.out.println(o.toString());
-                list.add(o);
+                selectedExercises.add(o);
             }
         }
-        this.exerciseList = list;
     }
 
-    public void submitPlan(String name) {
-        ExercisePlanDto planDto = new ExercisePlanDto();
-        planDto.setName(name);
-        //Find out how to get user info
-        planDto.setCreator(1);
-        planDto.setExercises(this.exerciseList);
-        Call<ExercisePlanDto> call = this.fitnessApp.getTrainingManagementService().savePlan("Bearer " + this.fitnessApp.getJwt(),planDto);
+    public void clearSelection(View button) {
+        selectedExercises.clear();
     }
 
 }

@@ -19,6 +19,7 @@ public class FitnessAppAndroidApplication extends Application {
 
     private String jwt;
     private Role userRole;
+    private Integer userId;
 
     public FitnessAppAndroidApplication() {
         Retrofit retrofit = new Retrofit.Builder()
@@ -43,6 +44,8 @@ public class FitnessAppAndroidApplication extends Application {
     public String getJwt() { return jwt; }
 
     public void setJwt(String jwt) {this.jwt = jwt;}
+
+    public Integer getUserId() { return this.userId; }
 
     public void setUserRole(Role userRole) {
         this.userRole = userRole;

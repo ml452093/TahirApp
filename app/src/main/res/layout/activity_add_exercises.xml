@@ -40,12 +40,12 @@
         android:id="@+id/buttonAddExerciseSelectUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
         android:text="Auswählen"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/addexercise_user_listview"
         app:layout_constraintBottom_toTopOf="@id/textView8"
-        tools:layout_editor_absoluteY="279dp" />
+        app:layout_constraintEnd_toStartOf="@+id/button16"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/addexercise_user_listview" />
 
     <TextView
         android:id="@+id/textView8"
@@ -80,10 +80,11 @@
         android:id="@+id/buttonAddExerciseSelectExercise"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
         android:text="Auswählen"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/button17"
+        app:layout_constraintEnd_toStartOf="@+id/button18"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/addexercise_exercise_listview" />
 
@@ -107,7 +108,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="19dp"
         android:layout_marginBottom="18dp"
-        android:text="Button"
+        android:text="Suche"
         app:layout_constraintBottom_toTopOf="@+id/addexercise_user_listview"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/addexercise_user_edittext"
@@ -120,7 +121,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
-        android:text="Button"
+        android:text="Search"
         app:layout_constraintBottom_toTopOf="@+id/addexercise_exercise_listview"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/addexercise_exercise_edittext"
@@ -138,5 +139,43 @@
         app:layout_constraintEnd_toStartOf="@+id/button6"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textView8" />
+
+    <Button
+        android:id="@+id/button16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="40dp"
+        android:text="Auswahl löschen"
+        app:layout_constraintBottom_toTopOf="@+id/textView8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/buttonAddExerciseSelectUser"
+        app:layout_constraintTop_toBottomOf="@+id/addexercise_user_listview" />
+
+    <Button
+        android:id="@+id/button17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/button18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:text="Auswahl löschen"
+        app:layout_constraintBottom_toTopOf="@+id/button17"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/buttonAddExerciseSelectExercise"
+        app:layout_constraintTop_toBottomOf="@+id/addexercise_exercise_listview"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="64dp"
-        android:text="Create a new Trainingsplan"
+        android:text="Einen neuen Traininsplan erstellen"
         android:textSize="26sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -23,8 +23,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="70dp"
         android:ems="10"
+        android:hint="Name"
         android:inputType="textPersonName"
-        android:text="Name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/createPlanTitle" />
@@ -34,7 +34,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="59dp"
-        android:text="Add Exercises"
+        android:text="Übungen hinzufügen"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -49,8 +49,8 @@
         android:layout_marginTop="12dp"
         android:layout_marginEnd="14dp"
         android:ems="10"
+        android:hint="Name"
         android:inputType="textPersonName"
-        android:text="Exercise Name"
         android:textSize="18sp"
         app:layout_constraintEnd_toStartOf="@+id/createPlanSearchButton"
         app:layout_constraintStart_toStartOf="parent"
@@ -62,18 +62,21 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="50dp"
-        android:text="Search"
+        android:onClick="searchExercises"
+        android:text="Suchen"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/createPlanTitle2" />
 
     <ListView
         android:id="@+id/createplan_listview"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginStart="30dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="30dp"
+        android:layout_marginBottom="20dp"
         android:choiceMode="multipleChoice"
+        app:layout_constraintBottom_toTopOf="@+id/buttonAddExercisesToPlan"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/createPlanExerciseSearchName" />
@@ -82,13 +85,37 @@
         android:id="@+id/buttonAddExercisesToPlan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="20dp"
+        android:onClick="selectExercises"
         android:text="Übungen hinzufügen"
+        app:layout_constraintBottom_toTopOf="@+id/button11"
+        app:layout_constraintEnd_toStartOf="@+id/button12"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/createplan_listview" />
+
+    <Button
+        android:id="@+id/button11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:text="Plan erstellen"
+        android:onClick="submitPlan"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        android:onClick="showClicked"/>
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/button12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:onClick="clearSelection"
+        android:text="Auswahl löschen"
+        app:layout_constraintBottom_toTopOf="@+id/button11"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/buttonAddExercisesToPlan"
+        app:layout_constraintTop_toBottomOf="@+id/createplan_listview" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -40,12 +40,14 @@
         android:id="@+id/buttonAddPlanSelectUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="10dp"
+        android:onClick="selectUsers"
         android:text="Auswählen"
         app:layout_constraintBottom_toTopOf="@+id/textView8"
-        app:layout_constraintTop_toBottomOf="@id/addplan_user_listview"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toStartOf="@+id/button15"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/addplan_user_listview" />
 
     <TextView
         android:id="@+id/textView8"
@@ -80,10 +82,11 @@
         android:id="@+id/buttonAddPlanSelectPlan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
+        android:layout_marginEnd="50dp"
+        android:onClick="selectPlans"
         android:text="Auswählen"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/button13"
+        app:layout_constraintEnd_toStartOf="@+id/button14"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/addplan_plan_listview" />
 
@@ -120,7 +123,8 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
-        android:text="Button"
+        android:onClick="searchPlans"
+        android:text="Suche"
         app:layout_constraintBottom_toTopOf="@+id/addplan_plan_listview"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/addplan_plan_edittext"
@@ -133,9 +137,49 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
-        android:text="Button"
+        android:onClick="searchUsers"
+        android:text="Suche"
         app:layout_constraintBottom_toTopOf="@+id/addplan_user_listview"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/addplan_user_edittext"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <Button
+        android:id="@+id/button13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="40dp"
+        android:text="Pläne hinzufügen"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonAddPlanSelectPlan" />
+
+    <Button
+        android:id="@+id/button14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:onClick="clearPlanSelection"
+        android:text="Auswahl löschen"
+        app:layout_constraintBottom_toTopOf="@+id/button13"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/buttonAddPlanSelectPlan"
+        app:layout_constraintTop_toBottomOf="@+id/addplan_plan_listview" />
+
+    <Button
+        android:id="@+id/button15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:onClick="clearUserSelection"
+        android:text="Auswahl löschen"
+        app:layout_constraintBottom_toTopOf="@+id/textView8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/buttonAddPlanSelectUser"
+        app:layout_constraintTop_toBottomOf="@+id/addplan_user_listview"
+        app:layout_constraintVertical_bias="0.142" />
 </androidx.constraintlayout.widget.ConstraintLayout>

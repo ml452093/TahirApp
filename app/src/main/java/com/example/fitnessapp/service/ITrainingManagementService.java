@@ -24,16 +24,22 @@ public interface ITrainingManagementService {
     public Call<ExercisePlanDto> savePlan(@Header("Authorization") String jwt, @Body ExercisePlanDto exercisePlanDto);
 
     @GET("/rest/exercises/plans/byName")
-    public Call<List<ExerciseDto>> searchExercisePlansByName(@Header("Authorization") String jwt, @Query("name") String name);
+    public Call<List<ExercisePlanDto>> searchExercisePlansByName(@Header("Authorization") String jwt, @Query("name") String name);
 
     @GET("/rest/exercises/byName")
     public Call<List<ExerciseDto>> searchExercisesByName(@Header("Authorization") String jwt, @Query("name") String name);
+
+    @PATCH("/rest/exercises/edit")
+    public Call<ExerciseDto> editExercise(@Header("Authorization") String jwt, @Body ExerciseDto exerciseDto);
+
+    @PATCH("/rest/exercises/plans/edit")
+    public Call<ExercisePlanDto> editPlan(@Header("Authorization") String jwt, @Body ExercisePlanDto exercisePlanDto);
 
     @PATCH("/rest/exercises/addUser")
     public Call<ExerciseDto> addUserToExercise(@Header("Authorization") String jwt, @Query("exercise") Integer exerciseId, @Query("user") Integer userId);
 
     @PATCH("/rest/exercises/plans/addUser")
-    public Call<ExerciseDto> addUserToExercisePlan(@Header("Authorization") String jwt, @Query("plan") Integer planId, @Query("user") Integer userId);
+    public Call<ExercisePlanDto> addUserToExercisePlan(@Header("Authorization") String jwt, @Query("plan") Integer planId, @Query("user") Integer userId);
 
     @DELETE("/rest/exercises")
     public Call<ResponseBody> deleteExercise(@Header("Authorization") String jwt, @Query("id") Integer exerciseId);
