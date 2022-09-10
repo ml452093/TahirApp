@@ -50,6 +50,7 @@ public class CreatePlanActivity extends AppCompatActivity {
             editText.setText(exercisePlanDto.getName());
             selectedExercises = exercisePlanDto.getExercises();
         }
+        this.searchExercises(null);
     }
 
     public void submitPlan(View view) {
